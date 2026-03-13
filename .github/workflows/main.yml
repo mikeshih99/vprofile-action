@@ -32,10 +32,10 @@ jobs:
 #run sonar-scanner
     - name: Run SonarScanner
       run: sonar-scanner
-        -Dsonar.host.url=${ { secrets.SONAR_URL } }
-        -Dsonar.login=${ { secrets.SONAR_TOKEN } }
-        -Dsonar.organization=${ { secrets.SONAR_ORGANIZATION } }
-        -dsonar.projectkey=${ { secrets.SONAR_PROJECT_KEY } }
+        -Dsonar.host.url=${{ secrets.SONAR_URL }}
+        -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+        -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }}
+        -Dsonar.projectkey=${{ secrets.SONAR_PROJECT_KEY }}
         -Dsonar.sources=src/
         -Dsonar.junit.reportPaths=target/surefire-reports
         -Dsonar.jacoco.reportPaths=target/jacoco.exec
@@ -51,4 +51,3 @@ jobs:
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         sonar_host_url: ${{ secrets.SONAR_URL }}
-        
